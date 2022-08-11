@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+/* -------------기본 css 제거 및 설정----------*/
+*{ margin: 0px; padding: 0px; font-family: '조선100년체';}
+a{ text-decoration: none; color: black;}
+a:hover { color: gray;}
+li{ list-style-type: none;}
+/* 웹 폰트 적용= 눈누, 구글 폰트*/
+@font-face {
+    font-family: 'ChosunCentennial';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/ChosunCentennial.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+/*-------------------헤더--------------*/
+#header{height: 150px; }
+.hd_box{width: 1200px; margin: 0 auto; }
+.logbox{ float: left; margin: 30px 0 0 30px; }
+.menus{ float: right; text-align: right; }
+.menus li{display: inline;}
+.top_menu{ margin: 30px 0px; }
+.main_meun li a{
+	    font-family: "ChosunCentennial";
+	    font-size: 20px; margin-left: 100px;
+}
+/*--------------------메인이미지-----------------*/
+#main_img{
+	   clear: both;
+	   height: 350px;
+	   background-image: url("img/main_bg.png");
+	   background-repeat: no-repeat;  /*자동채우기 제거*/
+	   background-position: top center;
+}
+/*----------------본문--------------------*/
+#content{width: 120px; margin:  0 auto;}
+/*------------------사이드바--------------------*/
+.sidebar{ float: left; width: 250px; margin-bottom: 80px;}
+.sb_comment { padding: 15px; line-height: 150%; }
+.searchbox  { padding: 15px; }
+.searchbox input{ width: 150px; height: 30px; }
+.searchbox button{ margin-left: 5px; padding: 8px 10px; }
+.sidebar .sb_title2{
+	border-top: solid 2px black;
+	border-bottom: solid 1px #eeeeee;
+	padding: 15px; font-size: 15px;
+}  
+.sidebar .sb_liet{padding: 15px;}
+.sideber .sb_liet li{padding: 10px;}
+    /*----------------메인 본문------------------------*/
+                /* 왼쪽 */
+.main_content{ float: right; width: 900px;}
+.left_main .main_title{ float: left; width: 440px; }               
+.left_main .board_ul{ margin: 10px 0px 40px 0px;}
+.left_main .board_ul .items{padding-bottom: 40px;}
+.items .title{ float: left;}
+.items .date{ float: right;}
+                 /* 오른쪽 */
+.right_main{ float: right; width: 440px;}
+.right_main .main_title{ border-bottom: solid 2px black; padding-bottom: 8px;}
+.right_main .product_ul{float: left; width: 200px; margin: 20px 0 0 10px;}
+
+/*-----------------------푸터------------------*/
+#footer{ clear: both;}
