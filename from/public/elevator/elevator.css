@@ -36,3 +36,18 @@ body {
  font-weight:bold;
  cursor: default;
 }
+.brown {
+ background-color: brown;
+}
+.clickbrown {
+ background-color: brown;
+}
+.yellowgreen {
+ background-color: yellowgreen;
+}
+.people {
+ position: absolute;
+ margin: -10px 10px 10px 10px;
+ width: 70px;
+ height: 100px;
+}
