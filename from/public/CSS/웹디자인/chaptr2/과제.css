@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+.container{
+	overflow: auto;
+	scroll-snap-type: x mandatory; 
+	height: 80vh;
+}
+section{
+	scroll-snap-align : start;	
+	height: 100vh;
+	background-size: cover;		
+	background-position: center center; 
+	background-repeat: no-repeat; 
+}	
+/*----------------1구역---------------*/
+.hero{
+	background-image: url("images/cfc2.jpg"); /*배경*/
+	text-align: center;
+	padding-top: 13vh;
+	font-size: 50px;
+	color: white;
+}
+
+/*------------------2구역------------*/
+.menu{
+	background-image: url("images/stb1.png");
+	display: flex;
+	align-items: flex-start;
+}
+.wrapper{
+	width: 1000px;
+	margin: 0 auto;
+}
+.menulist tr{
+	margin-bottom: 15px;
+	line-height: 3;
+	color: white;
+	font-size: 50px;
+}
+/*------------------3--------------*/
+.contact{
+	background-image:url("images/cfc3.jpg");
+	text-align: left;
+	color: white;
+	font-size: 50px;
+}
+.contactsns{
+	display: flex;
+	justify-content: flex-start;
+	
+}
+.contactsns a{
+	margin-top: 70px;
+	margin-right: 10px;	
+	text-align: left;
+}
+.fa-square-facebook{
+	color: #2b4b82;
+	
+}
+.fa-square-twitter{
+	color: #1c9ceb;
+}
+.fa-square-instagram{
+	color: #f60275
+}
+.title{
+	font-family:  'Silkscreen', cursive;
+	font-size: 9rem;
+	margin-bottom: 3rem;
+}
+@media (max-width:700px) {
+	.title{
+		font-size: 4rem;
+		color: white;
+	}
+}
+	
+
+
+
+
+
+
+
+
+
+
