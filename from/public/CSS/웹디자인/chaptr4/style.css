@@ -5,6 +5,7 @@
 	margin: 0 auto;
 	width: 100%;
 }
+
 /*---------헤더-----------------------*/
 header .wapper{
 	display: flex;
@@ -115,8 +116,124 @@ header .wapper{
 /* ---------------------본문 3 --------------------------------- */
 
 
+/*-------job html 테이블-----------*/
+/*레이아웃*/
+.main{
+	max-width: 900px;
+	width: 90%;					/* 모바일 기준으로 가로길이 10% 여백 */
+	margin: 100px auto;
+	padding: 20px;
+	background-color: #ffffff;
+	box-shadow: 0 0 6px #cccccc; /*그림자*/
+}
+/*본문*/
+.text_center{
+	text-align: center;
+}
+.text_center::after{
+	margin: 30px auto;
+}
+/*----------메인 이미지-------------*/
+.job_page{
+	background-image: url("imges/bg-job.jpg");
+	background-repeat: no-repeat;
+	background-position: left 100px; /*헤더 보이게끔 100px 둠  */
+	background-size: 70vw;  /*viewpot width : 반응형 가로*/
+	
+}
 
+/*--------테이블 ---------------------*/
+table{
+	margin: 3.5rem 0;
+	width: 100%;
+}
+th{
+	background-color: #f8f6f2;
+	padding: 1rem;	
+	vertical-align: middle; /* 텍스트 세로 정렬 / text-align : 텍스트 가로 정렬  */
+	font-weight: normal; /* 글꼴 숡게 [th기본값] 제거  */
+}
+td{
+	padding: 0.75rem 1rem 1.75rem;
+	
+}
+th,td{display: block;}  /* 모바일기준 [block : 한줄차지 ] */
+	
+/*-----타임라인------------*/
+.timeline{
+	list-style: decimal inside;
+}
+.timeline_item{
+	margin-bottom: 2rem;
+}
+.timeline_title{
+	display: inline-block; /* <h3> display: block */
+	font-size: 20px;
+	margin-bottom: 1rem;
+}
 
+/*-------------- form.html--------------------- */
+/*---------메인 이미지 ---------------------*/
+.form_page{
+	background-image: url("imges/bg-form.jpg");
+	background-repeat: no-repeat;
+	background-position: right 100px;
+	background-size: 70vw;
+}
+/*-----플레이스 폴더 셀럭터 (속성을 이용한 셀렉터 ) -----------------*/
+input[type='text']::placeholder ,
+input[type='email']::placeholder ,
+input[type='url']::placeholder ,
+textarea::placeholder{
+	color: #bbbbbb;
+}
+input[type='checkbox']  {
+	opacity: 0;
+	appearance: none;
+	position: absolute;
+}
+input[type='checkbox'] + span::before {
+	display: inline-block;
+	content: '';
+	width: 1.5rem;
+	height: 1.5rem;
+	border: 1px solid #bbb;
+	background: #fff;
+	margin: -.125rem .5rem 0 0;
+	vertical-align: middle;
+	
+	font-family: 'Font Awesome 5 pro';
+	font-weight: 900;
+	padding: 0 2px;
+}
+input[type='checkbox']:checked + span::before{
+	content: '\f00c';
+}
+/*----목록 상자----*/
+.select_box{ position: relative;}
+.select_box::after{
+	display: inline-block;
+	position: absolute;
+	top: .625rem; right: 1rem;
+	
+	font-family: 'Font Awesome 5 pro';
+	font-weight: 900;
+	content: '\f078';   /* 아래 방향 화살표 아이콘 */
+	color: #bbbbbb;
+}
+/*  */
+input[type='text'],
+input[type='email'],
+input[type='url'],
+select ,
+textarea{
+	border: 1px solid #bbbbbb;
+	background-color: white;
+	padding: 10px; width: 100%;
+}
+textarea{
+	height: 250px;
+}
 
 
 	
@@ -137,9 +254,59 @@ footer_nav li{
 
 
 /* 모바일 퍼스트: 모바일 기준으로 css 우선 작성 / 데스크톱 : 미디어쿼리 */
-@media (min-width: 600px)	{
-	/* 600px 이상일때 적용되는 css */
+@media (min-width: 600px)	{ /* 600px 이상일때 적용되는 css */
 	
+	/*------------타임라인---------------*/
+	.timeline_item{
+		display: flex;
+		margin-bottom: 0;  /* 테두리 연결 */
+	}
+	.timeline_title{
+		width: 24%;
+		padding: 2rem 2.5rem 2rem 0;
+		text-align: right;
+	}
+	.timeline_content{
+		border-left: 5px solid #f8f6f2;
+		width: 76%;
+		padding: 1.5rem 0 1.5rem 2.5rem;
+		position: relative; /* 가상요소를 절대위치 사용하기 위해서 */
+	}
+	.timeline_content::before{ /* 가상요소 -> 아이콘 */
+		/* 가상요소 절대위치 */
+		position: absolute; /* 부모요소 기준 */
+		top: 1.5rem; left: -1.5rem; 
+		/* 가상요소의 크기/배경색/정렬/여백 */
+		display: block; width: 2.25rem; height: 2.25rem; background-color: #d0bea2;
+		text-align: center; padding: .1rem;
+		/*  폰트어썸 아이콘 */
+		font-family: 'Font Awesome 5 Pro';
+		font-weight: 900;
+		color: #fff;
+		font-size: 1.25rem;
+	}
+	.icon_file::before{content: '\f56e';}
+	.icon_code::before{content: '\f121';}
+	.icon_chat::before{content: '\f086';}
+	.icon_hands::before{content: '\f2b5';}
+
+
+	/*------------------*/
+	.main{padding: 4rem;}
+	/*---------테이블-----------------*/
+	th,td{display: table-cell;} /*th,td display 기본값 : table-cell */
+		/* ----- 가상클래스 : 동일한 식별자가 있을경우 홀/짝/n 번쨰 선택 ------*/
+	/* tr : 5개 존재 */
+	tr:nth-child(odd){ /* 홀수 번째 tr 행 */
+		background-color: #f8f6f2;
+	}
+	tr:nth-child(even) th{ /* 짝수 번쨰 tr 행 */
+		background-color: #fff;
+	}	
+	th{ width: 25%; }
+	td{ width: 70%; }	
+	
+	/*---------푸터----------*/
 	.content{ 
 			display: flex; 						/* 하위태그 가로배치 */
 			justify-content: space-between; 	/* 하위태그 가로 정렬 */	

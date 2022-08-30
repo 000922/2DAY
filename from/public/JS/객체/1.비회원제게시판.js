@@ -73,7 +73,8 @@ function 게시물보기(i){
 	document.getElementById('viewiter').innerHTML = boardlist[i].작성자
 	document.getElementById('viewcontent').innerHTML = boardlist[i].내용
 } // 게시물보기 함수 end 
- 
+
+
 
 
  

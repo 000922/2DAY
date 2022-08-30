@@ -1,3 +1,4 @@
+let 지원자리스트 = [ ] /* 지원자 객체들을 담을 배열 선언  */
 /* chartist: 이용한 차트 구현 */
 /*
 	변수 = 값
@@ -64,6 +65,55 @@ function 차트그리기(){
 	barData2.series[0].push( money )
 	// 차트 적용 
 	new Chartist.Bar('.bar_chart2' , barData2 , barOptions2 )
+}
+
+/*----------------------------------------------------- */
+/*
+	1. 전송버튼을 눌렀을때 이벤트 함수 실행
+	
+	2. html 에서 입력된 테이터 js 가져와서 변수/객체 저장 -> 확인 
+		2-1 : 문서객체 가져오기
+		document.querySelector( ) : 1개 요소 호출
+		document.querySelectorAll( ) : 여러게 요소 호출
+		document.getElementById( ) : 1개 요소
+		2-2 : 문서객체내 내뇽을 호출 [ value 속성]
+		2-3 : 모든 내용물 객체에 저장
+		2-4 : 생성된 객체를 배열에 저장
+		
+	3. 배열내 존재하는 모든 객체들을 출력
+	
+ */	
+
+
+
+
+// 1 
+function 지원자등록(){
+	// 1번 테스트
+	console.log('지원자등록 함수 실행')
+	let 입력리스트 = document.querySelectorAll('input') 	// 8개 입력 박스
+	let 목록상자 = document.querySelector('selact')
+	let 긴글상자 = document.querySelector('textarea')
+	// 2번 테스트
+	console.log( 입력리스트 ) 
+	console.log( 목록상자 )
+	console.log( 긴글상자 )
+	
+	let 지원자 = {
+		성명 : 입력리스트[0].value ,
+		영문명 : 입력리스트[1].value ,
+		이멜이주소 : 입력리스트[2].value , 
+		포트폴리오 : 입력리스트[3].value,
+		희망근무지 : 입력리스트[4].value,		/* 4~6 체크박스 */
+		현재상태 : 목록상자.value ,
+		자기소개 : 긴글상자.value ,
+		
+	}
+	// 2-3 번 테스트
+	console.log( 지원자 )
+	// 2-4 : 생성된 객체를 배열에 저장
+	지원자리스트.push( 지원자 )
+	console.log( 지원자리스트 )
 }
  
  
