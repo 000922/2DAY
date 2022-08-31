@@ -1,0 +1,36 @@
+@charset "UTF-8";
+*{ font-family: "굴림";}
+h3{ text-align: center;}
+.signupbox{
+	width: 600px;
+	margin: 0 auto;
+	border-top: solid 2px red;
+	border-bottom: solid 2px red;
+	padding: 30px;
+}
+li{ list-style-type: none;}
+.cols li{ display: inline-block;}
+.col1{ width: 150px;}
+.col2 input { width: 250px; height: 25px;	}
+.cols{ padding: 5px;}
+.col2 select {
+	width: 100px; height: 30px;
+}
+.hello{ vertical-align: top;}
+textarea{ resize: none;}
+
+.buttonbox{
+	width: 600px;
+	margin: 0 auto;
+	text-align: right;
+}
+.buttonbox input {
+	padding: 10px 20px;
+	margin-top: 20px;
+}
+
+
+
+
+
+
