@@ -23,6 +23,28 @@ public class EX3_문자열 { // class s
 		System.out.println("우리는 \"개발자\" 입니다.");
 		System.out.print("봄\\여름\\가을\\겨울");
 		
+		System.out.println("----------------");
+		// 예1)
+		System.out.println("\\  /\\");
+		System.out.println(" ) ( ')");
+		System.out.println("( /  )");
+		System.out.println("\\(_)|");
+		// 예2)
+		System.out.println("|\\_/|");
+		System.out.println("|q p|   /}");
+		System.out.println("( o )\"\"\\");
+		System.out.println("|\"^\"`   |");
+		System.out.println("||_/=\\\\_|");
+		
+		// 예3)
+		System.out.println("\t[[ 출석부 ]]");
+		System.out.println("\n---------------------------");
+		System.out.println("\n이름\t1교시\t2교시\t3쇼");
+		System.out.println("\n유재석\t1출석\t2결석\t3출석");
+		System.out.println("\n강호동\t1출석\t2결석\t3출석");
+		System.out.println("\n---------------------------");
+		
+		
 		
 	} // main e
 	
