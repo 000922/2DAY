@@ -33,7 +33,25 @@ public class EX1_연산자 { // class s
 		System.out.println(" 후위감소 : " + (정수5--) );   	// 출력 후에 1 감소
 		System.out.println(" 확인 : " + 정수5 );
 		System.out.println(" 선위감소 : " + (--정수5) ); 	// 출력 전에 1 감소
-
+		
+		
+		// 5. 대입연산자
+		int 정수6 = 10; 	// = : 대입
+		정수6 += 3 ; 		// += : 오른쪽 데이터를 왼쪽에 더한 후에 대입
+		System.out.println(" 대입 결과 :" + 정수6);
+		
+		정수6 -=5; 	// 1. 정수6 - 5 -> 8 		2. 정수6 = 8
+		System.out.println("대입 결과 :" + 정수6 );
+		
+		// 6. 삼항연산자
+		int 점수 = 85;
+		char 등급 = 점수 > 90 ? 'A' : 'B';		// 조건식 ? 참 : 거짓
+				// 만약에 점수가 90점 초과이면 'A' 대입 아니면 'B' 대입
+		System.out.println(" 등급 결과 : " + 등급 );
+		
+		char 등급2 = 점수 > 90 ? 'A' : 점수 > 80 ? 'B' : 'C' ;
+		System.out.println(" 등급 결과 :" + 등급2);
+		
 	}
 	
 } // class e
