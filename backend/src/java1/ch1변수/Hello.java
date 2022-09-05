@@ -1,4 +1,4 @@
-package java1.a변수;	// 현재 클래스가 속한 패키지[폴더] 위치 표시
+package java1.ch1변수;	// 현재 클래스가 속한 패키지[폴더] 위치 표시
 
 // 1. 클래스 선언부 
 public class Hello {	// class s
