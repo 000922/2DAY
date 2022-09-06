@@ -1,4 +1,4 @@
-package chelsea1;	// 패키지명
+package chelsea1.a변수;	// 패키지명
 
 public class HW1_변수3 {	// class s
 

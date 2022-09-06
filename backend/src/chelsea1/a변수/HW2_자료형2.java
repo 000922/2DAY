@@ -1,4 +1,4 @@
-package chelsea1;
+package chelsea1.a변수;
 
 public class HW2_자료형2 {	// class s
 
