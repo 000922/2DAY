@@ -20,7 +20,7 @@ public class EX5_입출력 {		// class s
 		
 		double area = 3.14159 * 10 * 10; // 실수
 		System.out.printf("반지름이 %d인 원의 넓이 : %10.2f\n" , 10 , area);
-		
+	// --------------------------------- //	
 		String name = "홍길동";
 		String job = "도적";
 		System.out.printf("%6d| %-10s|%10s\n" , 1 , name , job );
@@ -41,7 +41,7 @@ public class EX5_입출력 {		// class s
 			// 키보드(System.in) --입력--> 객체 저장 --next()-->
 		// 2. 입력받은 데이터를 변수에 저장
 		Scanner scanner = new Scanner(System.in);
-		System.out.print("이름: ");  	String 이름 = scanner.next();
+		System.out.print("이름: ");  		String 이름 = scanner.next();
 		System.out.print("나이: ");		int 나이 = scanner.nextInt();		
 		System.out.print("키: ");		double 키 = scanner.nextDouble();
 		// 3. 변수 출력
