@@ -8,6 +8,8 @@ public class Ex3_틱택토게임 {
 		// * String(문자) 9개 를 저장할수 있는 배열 선언과 초기값[처음값]
 		String[ ] 게임판 = { "[ ]","[ ]","[ ]","[ ]","[ ]","[ ]","[ ]","[ ]","[ ]" };
 		Scanner scanner = new Scanner(System.in);
+		boolean 승리 = false;
+		int count = 0;
 		
 		while (true) { // 무한루프 [ 종료조건 : 승리판단 있을경우 ] // while 1 
 			
@@ -28,14 +30,38 @@ public class Ex3_틱택토게임 {
 				else { System.out.println("안내) 이미 알이 존재하는 위치 입니다. "); }
 			} // while 2 end 
 			
+			
+			
 			// 3. 컴퓨터 에게 위치 난수 생성
 			while( true ) { // while 2
 				Random random = new Random(); // 랜덤 객체 생성 
 				int 위치 = random.nextInt(9); // 0~8 난수 생성 
 				if( 게임판[위치].equals("[ ]") ) { 게임판[위치] = "[X]"; break; } // 알을 두면 무한루프 종료
 			} // while 2 end 
-			
 			// 4. 승리 판단 [ 과제 ] 
+			// 가로 승
+			for(int i = 0; i <= 6; i += 3) {
+				if(!게임판[i].equals("[ ]") && 게임판[i].equals(게임판[i+1]) && 게임판[i+1].equals(게임판[i+2]) ) {
+					System.out.println("게임끝) 승리: "+게임판[i]); 승리 = true;
+				}	// if end
+			}	// for end
+			// 세로 승
+			for(int i = 0; i <= 2; i++) {
+				if(!게임판[i].equals("[ ]") && 게임판[i].equals(게임판[i+3]) && 게임판[i+3].equals(게임판[i+6]) ) {
+					System.out.println("게임끝) 승리: "+게임판[i]); 승리 = true;
+				}	// if end
+			}	// for end
+			// 대각선 승
+			for(int i = 0; i <= 2 ; i = i+2) {
+				if(!게임판[i].equals("[ ]") && 게임판[i].equals(게임판[i+4]) && 게임판[i+4].equals(게임판[i+8]) ) {
+					System.out.println("게임끝) 승리: "+게임판[i]); 승리 = true;
+				}	// if1 end
+				if(!게임판[i].equals("[ ]") && 게임판[i].equals(게임판[i+2]) && 게임판[i+2].equals(게임판[i+4]) ) {
+					System.out.println("게임끝) 승리: "+게임판[i]); 승리 = true;
+				} // if2 end
+			}	// for end
+			// 무승부
+			if(count == 9) { System.out.println("게임끝) 무승부: "); return; }
 			
 			
 			
