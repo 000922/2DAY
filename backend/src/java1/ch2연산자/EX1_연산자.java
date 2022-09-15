@@ -4,6 +4,7 @@ public class EX1_연산자 { // class s
 
 	public static void main(String[] arge) {
 		
+		// 1. 산술
 		int 정수1 = 10; int 정수2 = 20;
 		System.out.println(" 더하기 : "+ 정수1+정수2 );
 		System.out.println(" 더하기 : "+ (정수1+정수2));
