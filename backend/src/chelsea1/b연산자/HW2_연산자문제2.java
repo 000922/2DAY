@@ -2,7 +2,7 @@ package chelsea1.b연산자;
 
 import java.util.Scanner;
 
-public class HW2_연산자2 {
+public class HW2_연산자문제2 {
 
 	public static void main(String[] args) {
 		// 입력객체 [ 1번만 선언 ] 

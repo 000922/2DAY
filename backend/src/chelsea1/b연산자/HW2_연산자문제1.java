@@ -2,7 +2,7 @@ package chelsea1.b연산자;
 
 import java.util.Scanner;
 
-public class HW2_연산자1 {	// c s
+public class HW2_연산자문제1 {	// c s
 
 	public static void main(String[] args) {	// m s
 		// 입력객체 선언
