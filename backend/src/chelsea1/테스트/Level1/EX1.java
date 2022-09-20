@@ -1,13 +1,13 @@
-package chelsea1.테스트;
+package chelsea1.테스트.Level1;
 
-public class Level1 {
+public class EX1 {
 
 	public static void main(String[] args) {
 		System.out.println(" >> Level1_1 answer >> \n");
 		/* 문제풀이 위치 */
 		
 		// 1.	boolean = true or false 
-				boolean a=true;					System.out.println("boolean :" + a);
+				boolean a=true;					System.out.println("input  :" + a);
 		// 2.	byte 1byte = 8bits
 				byte 바이트 = 100; 				System.out.println("byte : " + 바이트 );
 		// 3.	char 문자타입 ? 정수타입 ?
