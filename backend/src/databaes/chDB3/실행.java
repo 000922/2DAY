@@ -129,6 +129,16 @@ public class 실행 {
 			}
 			
 			// 9.
+			if( ch == 9 ) {
+				ArrayList< MemberDto > list = dao.예제9결과();
+				System.out.println("--- 예제8 결과물 ---");
+				// 향상된 for문
+				for( MemberDto dto : list ) { // list 내 모든 객체를 하나씩 반복대입
+					System.out.print( dto.mem_id		+"\t" );
+					System.out.print( dto.mem_name 		+"\t");				
+					System.out.print( dto.debut_date 	+"\n" );
+				} // for end 
+			}
 			
 			
 			

@@ -196,11 +196,29 @@ public class DAO {
 					list.add(dto);
 			}
 			return list;
-		}catch (Exception e) { System.out.println(" 예제7 오류 : " + e); }
+		}catch (Exception e) { System.out.println(" 예제8 오류 : " + e); }
 		return list;
 	}
 	
 	// 예제 9 :
+	ArrayList<MemberDto> 예제9결과() {
+		ArrayList<MemberDto> list = new ArrayList<>();
+		String sql = "select mem_id , mem_name , debut_date from member order by debut_date desc";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while( rs.next() ) {
+				MemberDto dto = new MemberDto();
+				dto.mem_id = rs.getString( 1 );
+				dto.mem_name = rs.getString( 2 );
+				dto.debut_date = rs.getString( 3 );
+				list.add(dto); 
+			}
+			return list;
+		}catch (Exception e) { System.out.println(" 예제9 오류 : " + e); }
+		return list;
+	}
+		
 	
 	
 	
