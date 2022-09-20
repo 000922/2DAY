@@ -15,7 +15,7 @@ public class EX2_자료형 { // class stant
 		// 2. char [ 한글자 1개 ] : 유니코드
 			// 문자[1개] 입력시 : ' ' 작은따움표
 			// 문자열 [여러개] 입력시 : " " 큰따움표
-		char 문자변수1 = 65;  		System.out.println("문자변수1 : " + 문자변수1);
+		char 문자변수1 = 65;  	System.out.println("문자변수1 : " + 문자변수1);
 		char 문자변수2 = 'A';	  	System.out.println("문자변수2 : " + 문자변수2);
 			int 문자변수3 = 'A';	System.out.println("문자변수3 : " + 문자변수3);
 		char 문자변수4 = '가';		System.out.println("문자변수4 : " + 문자변수4);
