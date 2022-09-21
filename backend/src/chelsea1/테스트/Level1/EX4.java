@@ -18,9 +18,20 @@ public class EX4 {
 		System.out.println( answer );
 		System.out.println("----------------");
 		
-		System.out.println("  		r\'\"\7  ");
-		System.out.println(" 	     \'");
+		System.out.println("  	      r\'\"7 \nr ` _\n\t_ ");
+		System.out.println(" 	   ,  , /");
+		System.out.println("\t \"  \' ");
+		System.out.println("\\.\t. L_r");
+		System.out.println("  \t\n`   ~\\/");
+		System.out.println("        |");
+		System.out.println("        |");
 		/* ----------- */
+		System.out.println("--------");
+		System.out.println(" \t\t  \'\"7");
+		System.out.println("\t       r");
+		System.out.println(" `\t     \'   ");
+		System.out.println("r  - \t        /");
+		
 	}
 	
 }
