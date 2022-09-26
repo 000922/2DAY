@@ -1,0 +1,59 @@
+스레드 클래스
+
+	extends 	[ 상속 ]
+			class A클래스 extends B클래스			: B클래스의 설계된 메모리를 A클레스에게 물려준다.
+												: A 클래스는  B클래스의 멤버를 사용할수 있다.
+												: B클래스 [ 부모클래스 ] A클래스 [ 자식클래스 ]
+												* 상속은 한번 받는다 . 
+											
+	implements	[ 구현 ]							: B인터페이스의 추상된 메소드를 A클래스가 구현한다.
+			class A클래스 implements B인터페이스		: B인터페이스 메소드를 선언된 메소드를 구현해주는 A클래스
+												: * 구현 여러번 가능한다. 
+			
+	인터페이스란 ?		서로 다른 클래스[설계 } 들을 {*} 동일한 목적하의 조작
+
+
+
+	1. Thread 
+		- 작업스레드 객체
+		Thread 객체명 = Therad( run 구현객체 );
+			-- 구현클레스
+			CLASS 구현클래스 implements Runnable { run메소드구현 }
+		Runnable 구현객체 = new 구현객체();
+		Thread 객체명 = new Thread( run 구현객체);
+
+		- 익명구현객체
+		Thread 객체명 = new Thread( new Runnable() { run구현 } );
+		
+	2. Thread 클래스
+		-3.	
+			-- 하위 클래스
+			CLASS 하위클래스 extends Thrad{ run (스레드가 실행할코드); }
+			
+		허위클래스 객체명 = new 하위클래스( );
+		객체명.start();
+		
+		-4. 익명 자식 객체
+		Thread 객체명 = new Thead() { run(스레드가 실행할코드 ); };
+	
+	
+----- 스레드 메소드
+	1. run(스레드가 실행할 코드);			: 멀티작업할 코드 정의
+	2. start();						: run 메소드 실행
+	3. 		
+			setname("새로운스레드이름")	: 스레드 이름 정의하기 [ 생력사 tread - x ]
+			ㅎㄷ수믇();				: 스레드 이름 호출
+	
+-- 동기화 [ synchronized ]
+	1. 여러개의 스레드가 동일한 객체를 사용할때 대기사앹 [ 들어온 순서대로 처리 ]
+				* 싱글스레드에서 x
+	2. 컬랙션 프레임워크
+			ArrayList		: 동기화x	- 싱글로라이즈
+			Vector			: 
+			
+			HashMap
+			HashTable	
+	
+	
+		
+		
