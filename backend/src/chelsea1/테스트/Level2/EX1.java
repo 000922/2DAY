@@ -15,10 +15,8 @@ public class EX1 {
 		
 		/* 문제풀이 위치 */
 	
-		if( btn == 'x') {
-			System.out.println("음악종료");
-			break;
-		}
+		if( btn == 'x') { System.out.println("음악종료");  break; }
+		
 			
 		/* ----------- */
 

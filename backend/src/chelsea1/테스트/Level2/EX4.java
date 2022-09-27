@@ -18,6 +18,11 @@ public class EX4 {
 		
 		/* 문제풀이 위치 */
 
+		int players = 0;
+		if( (players == 0 && com== 2) || (players == 1 && com==0) || (players == 2 && com==1) )
+		{ System.out.println("결과) 플레이어 승리"); int win = 0;
+		win++; }
+		
 		/* ----------- */
 	}
 }

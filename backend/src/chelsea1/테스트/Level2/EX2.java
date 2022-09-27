@@ -17,6 +17,17 @@ public class EX2 {
 		
 		/* 문제풀이 위치 */
 
+		if(result == 1 ) {
+			System.out.println("회원 성공 ~ ");
+		}else if(result == 2 ) {
+			System.out.println("까비 이미 사용중인 아이디 입니다 ㅠㅠ");
+		}else if(result == 3 ) {
+			System.out.println("입력된 안된 정보가 있습니다 ~");
+		}else {
+			System.out.println("데이터베이스 오류 입니다 ~");
+		}
+	
+		
 		/* ----------- */
 		
 	}

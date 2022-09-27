@@ -15,10 +15,20 @@ public class EX3 {
 		int eng = 49;
 		int mat = 72;
 		System.out.println("--------------------------------------------------------------------");
-		System.out.println("국어\t영어\t수학\t합계\t평균\t3배수\t8배수\t홀짝\t결과");
+		System.out.println("국어\t영어\t수학\t합계\t평균\t3배수\t7배수\t홀짝\t결과");
 		
 		/* 문제풀이 위치 */
 
+		int 합계 = 210;
+		boolean 배수3 = (kor+eng+mat) % 3 == 0 ? true : false ;
+		boolean 배수7 = (kor+eng+mat) % 7 == 0 ? true : false ;
+		
+		System.out.println(kor+"\t"+eng+"\t"+mat+"\t"+(kor+eng+mat)
+				+"\t"+((kor+eng+mat)/3)+"\t"+(배수3)+"\t"+배수7+"\t");
+		
+		
+		
+		
 		/* ----------- */
 	}
 }

@@ -25,14 +25,14 @@ public class EX7 {
 		// ---------------------------------------------------------------------------- //
 		
 		System.out.println("----------회원 개인정보----------");
-		System.out.println(" 원명 	: "+name );
-		System.out.println(" 상태 	: "+bool );
-		System.out.println(" 원번호 	: "+number );
-		System.out.println(" 성별 	: "+성별 );
-		System.out.println(" 포인트 	: "+point );
-		System.out.println(" 예금액 	: "+money );
-		System.out.println(" 키		: "+height );
-		System.out.println(" 몸무게 	: "+kg );
+		System.out.println(" 원명 	: "+ name );
+		System.out.println(" 상태 	: "+ bool );
+		System.out.println(" 원번호 	: "+ number );
+		System.out.println(" 성별 	: "+ 성별 );
+		System.out.println(" 포인트 	: "+ point );
+		System.out.println(" 예금액 	: "+ money );
+		System.out.println(" 키		: "+ height );
+		System.out.println(" 몸무게 	: "+ kg );
 		System.out.println("-------------------------------");
 		
 		/* ----------- */
