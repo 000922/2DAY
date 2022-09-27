@@ -13,7 +13,11 @@ public class EX6 {
 		double value5 = 3.123123123;	
 		
 		/* 문제풀이 위치 */
-
+		byte b 	= (byte)value1;			System.out.println("byte <- short : "+b);
+		short s = (short)value2;		System.out.println("short <- int : "+s);
+		int i 	= (int)value3;			System.out.println("int <- long : "+i);
+		float f = (float)value4;		System.out.println("long <- folat : "+f);
+		double d = (double)value5;		System.out.println("float <- double : "+d);
 		/* ----------- */
 	}
 }

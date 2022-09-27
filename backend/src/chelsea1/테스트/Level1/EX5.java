@@ -12,7 +12,11 @@ public class EX5 {
 		float value5 = 3.123123123F;
 		
 		/* 문제풀이 위치 */
-		
+		short s = value1;  		System.out.println("byte -> short : "+ s);
+		int i = value2;  		System.out.println("short -> int : "+ i);	
+		long l = value3;		System.out.println("int -> long : "+ l );
+		float f = value4;		System.out.println("long -> float : "+f);
+		double d = value5;		System.out.println("float -> double : "+d);
 
 
 		
