@@ -16,7 +16,49 @@ public class EX8 {
 		
 		/* 문제풀이 위치 */
 		
+		// -- 1
+		System.out.print("1] 작성자 : "); String writer = scanner.next();
+		System.out.print("1] 방문록 : "); String visit = scanner.next();
+		System.out.println(header);  
+		System.out.println(boardlist+"1\t"+writer+"\t"+visit);
+		System.out.println(output);
+		System.out.println(footer);
 		
+		// -- 2
+		System.out.print("2] 작성자 : "); String writer2 = scanner.next();
+		System.out.print("2] 방문록 : "); String visit2 = scanner.next();
+		System.out.println(header);  
+		System.out.println(output+boardlist+"1\t"+writer+"\t"+visit);
+		System.out.println(boardlist+"2\t"+writer2+"\t"+visit);
+		System.out.println(footer);
+		
+		// -- 3
+		System.out.print("3] 작성자 : "); String writer3 = scanner.next();
+		System.out.print("3] 방문록 : "); String visit3 = scanner.next();
+		System.out.println(header);  
+		System.out.println(output+boardlist+"1\t"+writer+"\t"+visit+"\n"+"2\t"+writer2+"\t"+visit2);
+		System.out.println(boardlist+"3\t"+writer3+"\t"+visit3);
+		System.out.println(footer);
+		
+		// -- 4
+		System.out.print("4] 작성자 : "); String writer4 = scanner.next();
+		System.out.print("4] 방문록 : "); String visit4 = scanner.next();
+		System.out.println(header);
+		System.out.println(output+boardlist+"1\t"+writer+"\t"+visit+"\n"+"2\t"+writer2+"\t"+visit2+"\n"
+				  			+"3\t"+writer3+"\t"+visit3);
+		System.out.println(boardlist+"4\t"+writer4+"\t"+visit4);
+		System.out.println(footer);
+		
+		// -- 5
+		System.out.print("5] 작성자 : "); String writer5 = scanner.next();
+		System.out.print("5] 방문록 : "); String visit5 = scanner.next();
+		System.out.println(header);
+		System.out.println(boardlist+"1\t"+writer+"\t"+visit+"\n"+"2\t"+writer2+"\t"+visit2+"\n"
+							+"3\t"+writer3+"\t"+visit3+"\n"+"4\t"+writer4+"\t"+visit4);
+		System.out.println(boardlist+"5\t"+writer5+"\t"+visit5);
+		System.out.println(footer);
+		
+	
 		
 		
 		/* ----------- */

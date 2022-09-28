@@ -17,11 +17,22 @@ public class EX4 {
 		String player = scanner.next();
 		
 		/* 문제풀이 위치 */
-
-		int players = 0;
-		if( (players == 0 && com== 2) || (players == 1 && com==0) || (players == 2 && com==1) )
-		{ System.out.println("결과) 플레이어 승리"); int win = 0;
-		win++; }
+		
+		System.out.println("player" + player);
+		System.out.println("com" + com);
+		
+		if( player.equals("가위") && com == 3 
+								|| player.equals("바위") && com == 1 
+								|| player.equals("보") && com == 2 )
+								{System.out.println("result) player 승리");} 
+		
+		else if(player.equals("가위") || com == 2 && player.equals("바위") && com == 3
+								|| player.equals("보") && com == 1) 
+								{System.out.println("result) com 승리");}
+		
+		else if(player.equals("가위") || com == 1 && player.equals("바위") && com == 2 
+								|| player.equals("보") && com == 3); 
+		
 		
 		/* ----------- */
 	}
