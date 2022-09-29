@@ -46,7 +46,7 @@ public class EX9_자유주제 {
 					System.out.println("❎❎❎❎❎❎❎ 입력X ❎❎❎❎❎❎❎");
 				}
 		
-		
+		 
 	} // main end
 	
 } // class end
