@@ -27,7 +27,7 @@ public class EX1 {
 		
 		
 		
-	} // main end	 
+	} // main end	  
 }	// class end
 
 
