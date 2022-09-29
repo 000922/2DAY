@@ -23,11 +23,11 @@ public class EX1 {
 		// 8.	double 소수점 17자리 까지 표현 
 				double 더블  = 3.123123123;		System.out.println("double : " + 더블);
 		
-		/* -----------  */
+		/* -----------  */ 
 		
 		
 		
-	} // main end	
+	} // main end	 
 }	// class end
 
 
