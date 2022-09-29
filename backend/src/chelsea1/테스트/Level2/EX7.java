@@ -16,7 +16,7 @@ public class EX7 {
 		/* 문제풀이 위치 */
 	
 		for( int i = 1 ; i<=100; i++) {
-			if( i%10 == 0) {
+			if( i%input == 0) {
 				System.out.println(i);
 			}
 			

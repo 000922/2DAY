@@ -12,12 +12,28 @@ public class EX8 {
 	
 		/* 문제풀이 위치 */
 	
+		String 네모 = "■ ";
+		int square = scanner.nextInt();
+		for( int i = 1 ; i <= square; i++) {System.out.print( 네모 );}
+		while( true ) {int box = scanner.nextInt();
+			for( int i = 1; i <= square+box;  i++ ) {
+				if( i > 0 ) {System.out.print( 네모 );}
+			} // for end
+			square+=box; 
+		} // while end
+		
+				
+				
+				
+			
 		
 		
 		/* ----------- */
 
-	}
-}
+	} // main end
+} // class end
+
+
 /* 
 	[문제] 그림과 같이 계속입력한 수에 따라 누적으로 저장되어 저장된 수 만큼 ■ 를 출력하시오.
 	[조건] 
