@@ -5,10 +5,7 @@ import java.util.Scanner;
 public class EX9_자유주제 {
 
 	public static void main(String[] args) {
-		
-		
-				System.out.println("❎❎❎❎❎❎❎ 계산기 ❎❎❎❎❎❎❎");
-				
+			
 
 				int First = 0; 		
 				int Second = 0;
@@ -17,6 +14,7 @@ public class EX9_자유주제 {
 
 				Scanner scanner = new Scanner(System.in);
 				
+				System.out.println("❎❎❎❎❎❎❎ 계산기 ❎❎❎❎❎❎❎");
 				
 				// 입력 받기 10 + 10 = 20
 				System.out.print("🔢 숫자 입력 : ");

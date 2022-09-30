@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.Random;
 import java.util.Scanner;
 
-public class EX4 {
+public class EX_4 {
 	
 	public static void main(String[] args) {
 		System.out.println(" >> Level2_4 answer >> ");
@@ -18,26 +18,17 @@ public class EX4 {
 		
 		/* 문제풀이 위치 */
 		
-		
-		System.out.println("comran)" + com);
-		
-		
-		
-		if( player.equals("가위") && com == 3 
-								|| player.equals("바위") && com == 1 
-								|| player.equals("보") && com == 2 )
-								{System.out.println("result) player 승리");
-								} 
-		
-		else if(player.equals("가위") || com == 2 && player.equals("바위") && com == 3
-								|| player.equals("보") && com == 1) 
-								{System.out.println("result) com 승리");} 
-		
-		else if(player.equals("가위") || com == 1 && player.equals("바위") && com == 2 
-								|| player.equals("보") && com == 3); 
+		if( ( player == "가위" && com== 1) || (player== "바위" && com==0) || (player == "보" && com==1) )
+		{ System.out.println("결과) 플레이어 승리");  
+		}else if( ( player=="가위" && com==0 ) || (player== "바위" && com==1) || ( player == "보" && com==2) )
+		{System.out.println("결과) 무승부");
+		}else{ 
+			{System.out.println("결과) 컴퓨터 승리");  } }
 								
 		
 		
+		
+
 		/* ----------- */
 	}
 }
