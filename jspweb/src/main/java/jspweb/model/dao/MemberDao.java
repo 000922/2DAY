@@ -1,5 +1,7 @@
 package jspweb.model.dao;
 
+import org.eclipse.jdt.internal.compiler.ast.ReturnStatement;
+
 import jspweb.model.dto.MemberDto;
 
 public class MemberDao extends Dao {
@@ -25,6 +27,21 @@ public class MemberDao extends Dao {
 			ps.setString(6, dto.getMaddress() );
 			ps.executeUpdate(); return true;
 		} catch (Exception e) {System.out.println(e);}
+		return false;
+	} // 회원가입 end
+	
+	public boolean login( String id , String password ) {
+		String sql = "selet * from member "
+				+ "where mid=? and mpassword = ?";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, id);
+			ps.setString(2, password);
+			rs = ps.executeQuery();
+			if( rs.next() ){	// 만약에 다음 레코드가 존재하면 
+				return true;
+			}
+		} catch (Exception e) { System.out.println(e);}
 		return false;
 	}
 	

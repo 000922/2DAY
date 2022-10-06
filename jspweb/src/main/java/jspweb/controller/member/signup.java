@@ -16,6 +16,9 @@ public class signup extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		// 0. 한들 인코딩 [ UTF-8 , EUC-KR ]
+		request.setCharacterEncoding("UTF-8");
+		
 		 //  1. JSP(HTML) from입력받은 데이터 요청 !!! 
 		String mid = request.getParameter("mid");
 		String mpassword = request.getParameter("mpassword");
@@ -23,8 +26,14 @@ public class signup extends HttpServlet {
 		String mname = request.getParameter("mname");
 		String mphone = request.getParameter("mphone");
 		String memail = request.getParameter("memail");
-		String maddress = request.getParameter("maddress");
 		
+		// 주소4개 요청
+		String maddress1 = request.getParameter("maddress1");
+		String maddress2 = request.getParameter("maddress2");
+		String maddress3 = request.getParameter("maddress3");
+		String maddress4 = request.getParameter("maddress4");
+		// 주소 4개 --> 하나의 변수 
+		String maddress = maddress1+","+maddress2+","+maddress3+","+maddress4;
 		// 2. 변수6개 -- > Dto 객체화
 		MemberDto dto = new MemberDto( 
 				0, mid,
