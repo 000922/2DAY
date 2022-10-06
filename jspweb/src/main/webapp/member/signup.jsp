@@ -9,7 +9,7 @@
 <body>
 
 		<h3>회원가입 페이지</h3>
-		<form action="" method="post">
+		<form action="/jspweb/member/signup" method="post">
 		아이디 : 		<input type="text" 		name="mid">					<br>
 		비밀번호 : 	<input type="password" 	name="mpassword">			<br>
 		비밀번호확인 : 	<input type="password" 	name="mpasswordconfirm">	<br>
@@ -34,10 +34,12 @@
 				2. password : 가려진 텍스트 입력
 				3. submit : 폼 전송
 			2. name : 태그의 식별 이름 
+			
 	<form>	: 폼(양식)	전송기능	
 		속성
 			1. action = "전송을 받을 URL"
 			2. method =  전송방식
+					get -- -> 
 			
 			HTTP 전송 메소드
 			
