@@ -21,3 +21,11 @@ create table member(
     
     
 select * from member;
+
+-- 로그인 [ 해당 테이블에 동일한 아이디와 패스워드가 존재하는 검색 ]
+	-- select 
+	-- select * from 테이블명 where 아이디 = ? and 비밀번호 = ?
+select * from member where mid = '123' and mpassword = '456';
+	-- 존재하면 레코드 1개 검색 
+	-- 존재하지 않으면 레코드 x 
+select * from member;

@@ -3,21 +3,19 @@ package jspweb.model.dto;
 import java.lang.reflect.Member;
 
 public class MemberDto {
-
-	private int mno;		
-	private String mid;
-	private String mpassword ;						
-	private String mname;	
-	private String mphone;	
-	private String memail;		
-	private String maddress;
-	private String mdate;			
-	private int mpoint;
+	// DB테이블 필드명 <-- 필드명 ---> java 필드 
+	private int mno;			
+	private String mid	;							
+	private String mpassword;					
+	private String mname	;								
+	private String mphone	;							
+	private String memail	;						
+	private String maddress	;			
+	private String mdate	;		
+	private int mpoint		;
 	
-	//
+	// 생성자2개 , set/get , toString => 자동완성 
 	public MemberDto() {}
-	
-	
 
 	public MemberDto(int mno, String mid, String mpassword, String mname, String mphone, String memail, String maddress,
 			String mdate, int mpoint) {
@@ -33,9 +31,6 @@ public class MemberDto {
 		this.mpoint = mpoint;
 	}
 
-
-
-	//
 	public int getMno() {
 		return mno;
 	}
@@ -108,6 +103,15 @@ public class MemberDto {
 		this.mpoint = mpoint;
 	}
 
+	@Override
+	public String toString() {
+		return "MemberDto [mno=" + mno + ", mid=" + mid + ", mpassword=" + mpassword + ", mname=" + mname + ", mphone="
+				+ mphone + ", memail=" + memail + ", maddress=" + maddress + ", mdate=" + mdate + ", mpoint=" + mpoint
+				+ "]";
+	}
+	
+	
+}
 		
 	
 	
