@@ -1,6 +1,8 @@
 package jspweb.model.dto;
 
-import java.lang.reflect.Member;
+
+
+import javax.servlet.http.HttpServletRequest;
 
 public class MemberDto {
 	// DB테이블 필드명 <-- 필드명 ---> java 필드 
@@ -109,6 +111,11 @@ public class MemberDto {
 				+ mphone + ", memail=" + memail + ", maddress=" + maddress + ", mdate=" + mdate + ", mpoint=" + mpoint
 				+ "]";
 	}
+
+	public static HttpServletRequest getInstance() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 }
@@ -122,4 +129,4 @@ public class MemberDto {
 	
 	
 	
-}
+
