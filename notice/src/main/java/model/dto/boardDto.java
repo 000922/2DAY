@@ -12,6 +12,8 @@ public class boardDto {
 	private String bpassword ;
 	
 	//
+	public boardDto() {}
+	
 	public boardDto(int bno, String bid, String btitle, String bcontents, String bwriter, String bpassword) {
 		super();
 		this.bno = bno;
@@ -71,6 +73,14 @@ public class boardDto {
 		this.bpassword = bpassword;
 	}
 	//
+
+	@Override
+	public String toString() {
+		return "boardDto [bno=" + bno + ", bid=" + bid + ", btitle=" + btitle + ", bcontents=" + bcontents
+				+ ", bwriter=" + bwriter + ", bpassword=" + bpassword + "]";
+	}
+	
+	
 
 	
 
