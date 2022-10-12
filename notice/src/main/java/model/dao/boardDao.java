@@ -11,12 +11,9 @@ public class boardDao {
 	
 	// 1.
 	public boolean board( boardDto dto ) {
-		String sql = "insert into"
-				+ "board(bid ,btitle,"
-				+"bcontents,"
-				+ "bwriter,"
-				+ "bpassword," 
-				+" values(?,?,?,?,?)";
+		String sql = "insert into board(title,writer,password,content) values(?,?,?,?)"; //글등록하기
+		
+		
 		try {
 			ps = con.prepareStatement(sql);
 			ps.setString( 1 , dto.getBid() );

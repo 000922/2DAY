@@ -72,15 +72,7 @@ public class boardDto {
 	}
 	//
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(bcontents, bid, bno, bpassword, btitle, bwriter);
-	}
-
-	public boardDto() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	
 
 	
 	
