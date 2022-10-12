@@ -7,22 +7,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.simple.JSONObject;
-
 import jspweb.model.dao.MemberDao;
-import jspweb.model.dto.MemberDto;
 
 /**
- * Servlet implementation class info
+ * Servlet implementation class update
  */
-@WebServlet("/member/info")
-public class info extends HttpServlet {
+@WebServlet("/member/update")
+public class update extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public info() {
+    public update() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,31 +28,14 @@ public class info extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println(11);
 		
-		// 1. 요청 [ 세션에 로그인 정보 호출 ]
-		String mid =
-				(String)request.getSession().getAttribute("mid");
-		// 2. db
-		MemberDto dto =
-				MemberDao.getInstance().getinfo(mid);
-		
-		//*** JS DTO 사용X
-			// 1. js 이해할수 있는 형식
-			// 2. DTO -> JSON 형식 
-		JSONObject object = new JSONObject();
-			object.put( "mno" , dto.getMno() );
-			object.put( "mid" , dto.getMid() );
-			object.put( "mname" , dto.getMname() );
-			object.put( "mphone" , dto.getMphone() );
-			object.put( "memail" , dto.getMemail() );
-			object.put( "maddress" , dto.getMaddress() );
-			object.put( "mdate" , dto.getMdate() );
-			object.put( "mpoint" , dto.getMpoint() );
-		
-		// 3. 응답
-		response.setCharacterEncoding("UTF-8");
-		response.getWriter().print( object );
+		// 누구를 수정할껀지 식별 데이터 필요 == 로그인 정보 == 세션 = 'mid'
+				String mid = (String)request.getSession().getAttribute("mid");
+				// 수정할 내용
+				String mname = request.getParameter("mname");
+				
+				boolean result = MemberDao.getInstance().update( mid , mname );
+				response.getWriter().print(result);
 	}
 
 	/**
