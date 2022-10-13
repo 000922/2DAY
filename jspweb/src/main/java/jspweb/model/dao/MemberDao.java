@@ -113,83 +113,65 @@ public class MemberDao extends Dao {
 							rs.getString( 6 ), rs.getString( 7 ), 
 							rs.getString( 8 ) , rs.getInt( 9 ) 
 							);
-					
-					// 2. 빈생성자
-					/*
-					dto = new MemberDto();
-					dto.setMno( rs.getInt( 1 ) );
-					dto.setMid( rs.getString( 2 ) );
-					// 패스워드 제외
-					dto.setMname( rs.getString( 4 ) );
-					dto.setMphone( rs.getString( 5 ) );
-					dto.setMemail( rs.getString( 6 ) );
-					dto.setMaddress( rs.getString( 7 ) );
-					dto.setMdate( rs.getString( 8 ) );
-					dto.setMpoint( rs.getInt( 9 ) );
-					*/
-					// 3. 반환
+					// 2. 반환
 					return dto;
 				}
 			}catch (Exception e) { System.out.println( e );}
 			return dto;
 		}
 		
-		// 7. 모든 회원 호출
+		// 7. 모든 회원 호출 
 		public ArrayList<MemberDto> getinfolist(){
-			
-			ArrayList<MemberDto> list = new ArrayList<>();
-			
-			String sql = "select * from member";
+			ArrayList<MemberDto> list = new ArrayList<>();	// 1.리스트 선언 
+			String sql ="select * from member";	// 2. SQL 작성 
 			try {
-				ps = con.prepareStatement(sql);
-				rs = ps.executeQuery();
-				while(rs.next() ) {
-					MemberDto dto = new MemberDto(
+				ps = con.prepareStatement(sql);	// 3. SQL 연결 
+				rs = ps.executeQuery();			// 4. SQL 실행 
+				while( rs.next() ) {			// 5. SQL 결과 레코드 반복 호출
+					MemberDto dto = new MemberDto(	// 6. 레코드 --> DTO 객체 생성 
 							rs.getInt( 1 ) , rs.getString( 2 ) , null ,
 							rs.getString( 4 ), rs.getString( 5 ) ,
 							rs.getString( 6 ), rs.getString( 7 ), 
 							rs.getString( 8 ) , rs.getInt( 9 ) 
 							);
-						list.add(dto);
+					list.add(dto);					// 7. DTO -> 리스트 담기
 				}
-				return list;
-			}catch (Exception e) {System.out.println(e); }
+				return list;						// 8. 리스트 반환
+			}catch (Exception e) {System.out.println(e);}
 			return list;
 		}
 		
 		// 8. 회원탈퇴
-		public boolean delete( String mid , String mpassword ) {
+		public boolean delete( String mid , String mpassword) {
 			String sql = "delete from member"
 					+ " where mid = ? and mpassword = ? ";
 			try {
 				ps = con.prepareStatement(sql);
-				ps.setString(1, mid);
-				ps.setString(2, mpassword);
-				int count = ps.executeUpdate();	// 삭제 레코드 수 반환
-				if( count == 1 ) { return true; }
+				ps.setString( 1 , mid );	
+				ps.setString( 2 , mpassword );
+				int count = ps.executeUpdate();  // 삭제 레코드 수 반환
+				if( count == 1 ) { return true; } 
 				// 삭제된 레코드가 1개 이면 성공 
-			}catch (Exception e) { System.out.println(e);}
+			}catch (Exception e) {System.out.println(e);} 
 			return false;
 		}
-		
-		// 9. 아이디 중복체크
+		// 9. 아이디 중복체크 
 		public boolean idcheck( String mid ) {
-			String sql = "select * from member where mid = ?";
+			String sql ="select * from member where mid = ?";
 			try {
-				ps=con.prepareStatement(sql);	ps.setString(1, mid);
+				ps=con.prepareStatement(sql);	ps.setString( 1 , mid );
 				rs = ps.executeQuery(); if( rs.next() ) return true;
-			}catch (Exception e) { System.out.println(e); } return false;
+			}catch (Exception e) {System.out.println(e);} return false;
 		}
 		
 		// 10. 이메일 중복체크
 		public boolean emailcheck( String memail ) {
-			String sql = "select * from member where memail = ?";
+			String sql ="select * from member where memail = ?";
 			try {
-				ps=con.prepareStatement(sql);	ps.setString(1, memail);
+				ps = con.prepareStatement(sql); ps.setString( 1 , memail );
 				rs = ps.executeQuery(); if( rs.next() ) return true;
-			}catch (Exception e) { System.out.println(e); } return false;
+			}catch (Exception e) {System.out.println(e);} return false;
 		}
-		
 		
 		// 11. 회원정보 수정 
 		public boolean update(String mid , String mname ) {
@@ -200,6 +182,25 @@ public class MemberDao extends Dao {
 				ps.executeUpdate(); return true;
 			}catch (Exception e) {System.out.println(e);} return false;
 		}
+		
+		// 12. 회원아이디 ---> 회원번호 
+		public int getMno( String mid) {
+			String sql = "select mno from member "
+					+ "where mid = ?";
+			try {
+				ps = con.prepareStatement(sql);
+				ps.setString( 1 , mid );
+				rs = ps.executeQuery();
+				//  if (1개) vs while (여러개)
+				if( rs.next() ) return rs.getInt(1);
+			}catch (Exception e) { System.out.println(e);} return 0;
+			
+		}
+		
+		
+		
+		
+		
 		
 }
 	

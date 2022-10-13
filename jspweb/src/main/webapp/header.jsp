@@ -12,9 +12,8 @@
 	<!-- 폰트어썸 [ 아이콘 ] -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
 </head>
-
 <body>
-<div class="webbox"> 	<!-- 웹페이지 박스권 -->
+	<div class="webbox"> 	<!-- 웹페이지 박스권 -->
 		<div class="hd_top"> <!-- 상단 헤더 -->
 			<div>	<!--  로고  -->
 				<span class="hd_title"> 
@@ -43,7 +42,7 @@
 			
 			<!--  공통 메뉴  -->
 				<li> <a href="/jspweb/member/info.jsp">마이쇼핑</a> </li>
-				<li> <a href="#">고객센터</a> </li>
+				<li> <a href="/jspweb/board/list.jsp">고객센터</a> </li>
 				
 			</ul> <!--  상단 메뉴 end  -->
 			
@@ -72,10 +71,9 @@
 	<!-- JQUERY 라이브러리 -->
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 </body>
-
-
-
 </html>
+
+
 
 
 <!-- 
