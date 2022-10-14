@@ -1,0 +1,72 @@
+JSP ---> servlet 클래스
+	1. 자바에서 웹페이지 제작을 위한 클래스
+servelt 문제점 
+	1. 백엔드 와 프론트엔드 구별/연동 [ 개발이 어렵다 ]
+servelt 해결방안
+	1. 백엔드 와 프론트엔드 합치자 => JSP
+=========================================================
+홈페이지 대규모 작업 --->  MVC2 패턴 ----> JSP 안쓴다.
+	MVC1패턴 : JSP파일 : JAVA + HTML  	[ V/C ]
+			- DAO : JAVA	[ M ]
+
+	MVC2패턴 : JSP파일 : HTML		[ V ] ----> REACT
+			- 서블릿 : JAVA	[ C ] ----> SPRING
+			- DAO : JAVA	[ M ]
+
+============================================================
+	1. 웹서버  [ 톰캣 ]		8080
+	2. DB서버 [ MYSQL ]	3306
+		* 포트확인 CMD -> netstat - ano
+		* IP : 내 PC 식별번호			[PC로 접근하는 식별번호]
+		* 포트 : 내 PC의 프로그램 [ 프로세스 ] 접근 번호 	[프로그램 접근하는 식별 번호]
+0. 자바 설치
+	1. 
+	2. 설치 위치 확인 
+1. 서버 설치[ 아파치 톰캣 ]
+	1. 32-bit/64-bit Windows Service Installer (pgp, sha512)
+	2. 포트번호 확인
+	3. 자바[JRE폴터]가 설치된 위치 설정
+	
+	[ 선택 ]
+	* 확인 : 윈도우 시작표시줄에 아이콘에  톰캣 더블클릭 
+		- startup type : disabled
+		- service status : stop
+ 		- 톰캣 아이콘 오른쪽 클릭 -> exit
+		- 윈도우 검색 -> 서비스 -> Apache Tomcat 9.0 Tomcat9 [ 시작유형 : 사용안함 , 서비스 상태  ]
+
+
+[ 이클립스 프로젝트 ]
+2. Server
+	1. 서버타입 : 아파치 톰캣 9.0
+	2. 서버에 프로젝트 오른쪽 add
+	3. 톰캣 포드 선택 
+
+3. Dynamic Web Project
+	1. 프로젝트 buiid path [라이브러리 설정]	: 개발에 필요한 라이브러리
+		1. JAVASE - 1.8
+		2. apacje tomcat 9.0
+		3. MYSQL.jar
+	2. webapp -> WEB-INF -> lib		: 배포헀을때 사용하는 라이브러리
+		1. MYSQL.jar
+
+	3. CONSOLE실행 -> 내PC실행
+	서블릿 실행 --> 웹서버PC실행	
+
+==========
+System.out.print() : console 출력함수
+
+
+=====================
+HttpServletResponse 클래스 
+	1. request.getParameter(변수명)
+
+
+
+
+
+
+
+
+
+
+ 
