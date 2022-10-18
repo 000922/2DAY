@@ -65,3 +65,23 @@ from member m , board b where m.mno = b.mno;
 select b.* , m.mid from member m , board b where m.mno = b.mno;
 -- 5. 개별 글출력 
 select b.* , m.mid from member m , board b where m.mno = b.mno and bno = 1; -- 게시물번호 board
+
+
+
+-- 페이징처리 테스트
+
+-- 1. 모든 게시물 수
+select count(*) from board;
+-- 2. 검색 결과에서 limit 이용한 개수 제한 [ limit 시작점 , 개수 ]
+select * from board limit 0 , 3;
+-- 3. 정렬 [ 작성일 기준으로 정렬  desc:내림차순 / asc : 오름차순 ( 날짜 최신일수록 크다.) ]
+select * from board order by bdate desc;
+--
+select * from board order by bdate desc limit 0 , 3; -- 최신글 3개 [ 1페이지 ]
+select * from board order by bdate desc limit 3 , 3; -- 최신글 3개 [ 2페이지 ]
+select * from board order by bdate desc limit 6 , 3; -- 최신글 3개 [ 3페이지 ]
+select * from board order by bdate desc limit 9 , 3; -- 최신글 3개 [ 4페이지 ]
+-- 앞전코드 + 정렬 
+select b.* , m.mid from m , board b where m.mno = b.mno order by b.bdate desc;
+--
+select b.* , m.mid from m , board b where m.mno = b.mno order by b.bdate desc limit 0 , 3;
