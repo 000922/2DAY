@@ -39,8 +39,10 @@ public class filedown extends HttpServlet {
 		String bfile = request.getParameter("bfile"); // 다운로드할 파일명 요청
 		
 		// 2. 업로드된 경로 + 파일명으로 해당 파일 위치 찾기
-		String uploadpath = 
-				"C:\\Users\\504\\git\\2DAY\\jspweb\\src\\main\\webapp\\upload\\"+bfile;
+	//	String uploadpath = "C:\\Users\\504\\git\\2DAY\\jspweb\\src\\main\\webapp\\upload\\"+bfile;
+		
+		String uploadpath = request.getSession().getServletContext().getRealPath("/upload/"+bfile);
+		
 		// 3. 해당 경로의 파일을 객체화 [ java에서 파일 클래스 = File ]
 		File file = new File(uploadpath);	// 해당 경로에 존재하는 파일을 객체화 불로오기 [ 해당 파일을 조작/메소드 ]
 		

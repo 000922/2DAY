@@ -59,8 +59,14 @@ public class write extends HttpServlet {
 				// 첨부파일 : http post 메소드 지원
 				// new MultipartRequest( 1.요청방식 , 2.파일저장경로 , 3.초대허용범위(바이트) , 4.인코딩타입 5.기타(보안) )
 						// 1바이트( 0 , 1 ) --> 1바이트 ( 01011111 : 8비트 ) -> 1kb ( 1024b ) -> 1mb ( 1024kb) -> 1G
-		// 1. 저장 경로 [ 프로젝트 저장 ]
-		String uploadpath = "C:\\Users\\504\\git\\2DAY\\jspweb\\src\\main\\webapp\\upload" ;
+		// 1. 저장 경로 [ 개발중인 프로젝트 폴더 저장 ]
+		// String uploadpath = "C:\\Users\\504\\git\\2DAY\\jspweb\\src\\main\\webapp\\upload" ;
+		// 1. 저장 경로 [ 배포된 프로젝트의 (서버) 폴더 저장 ]
+			// 1. 현재 배포된 프로젝트의 경로 찾기
+		// String uploadpath =	 request.getSession().getServletContext().getRealPath("/"); // jspweb
+		String uploadpath =	 request.getSession().getServletContext().getRealPath("/upload"); // jspweb / upload 
+		
+		System.out.println( uploadpath );
 		
 		// 2. Multipart 객체 생성
 		MultipartRequest multi = new MultipartRequest( 
