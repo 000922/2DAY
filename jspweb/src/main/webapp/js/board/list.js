@@ -1,10 +1,15 @@
-
+// 전역변수 [ 상단 ]
 let pageinfo = {  // js 객체 선언 
- 	listsize : 2 ,  // 한페이지당 게시물 표시 개수 
-	page  : 1 		// 현재 페이지 번호 
+ 	listsize : 5 ,  // 한페이지당 게시물 표시 개수 
+	page  : 1 ,		// 현재 페이지 번호 
+	key : '' ,		// 검색 키
+	keyword : '' ,	// 검색 키워드 
 }
 
-list( 1 ) // js 열람시 메소드 1번 실행  [ 첫 화면에서 1페이지 ]
+list( 1 )	// js 열람시 메소드 1번 실행  [ 첫 화면에서 1페이지 ]
+
+
+// 
 function list( page ){ // 함수 정의한다
 	
 	pageinfo.page = page;	// 객체 정보 변경 
@@ -53,6 +58,7 @@ function list( page ){ // 함수 정의한다
 			
 			document.querySelector('.pagebox').innerHTML = pagehtml
 			
+			document.querySelector('.totalsize').innerHTML = boards.totalsize
 		}
 	})
 }
@@ -65,4 +71,18 @@ function viewload( bno ){
 			location.href = "http://localhost:8080/jspweb/board/view.jsp"
 		}
 	})
+}
+
+
+
+// 4. 검색처리 함수 
+function bsearch(){
+	pageinfo.key = document.querySelector('.key').value
+	pageinfo.keyword = document.querySelector('.keyword').value
+	list( 1 )
+}
+// 6.게시물 표시 개수 
+function blistsize(){
+	pageinfo.listsize = document.querySelector('.listsize').value
+	list( 1 )
 }

@@ -42,6 +42,20 @@
 		</table> --%>
 		
 		<!-- JS로 테이블 표시    [ HTML(JSP) --- JS ---- 서블릿 --- DAO ] -->
+		<div>게시물수 : <span class="totalsize"></span><div></div>
+		
+		<div>
+			<select class="listsize" onchange="blistsize()">
+				<option value="5"> 5 </option>
+				<option value="10"> 10 </option>
+				<option value="15"> 15 </option>
+				<option value="20"> 20 </option>
+			</select>
+		
+		</div>
+		
+		
+		
 		<table class="btalbe table">
 			<tr>
 				<th> 번호 </th> <th> 제목 </th> <th>작성자</th> 
@@ -49,13 +63,28 @@
 			</tr>
 		</table>
 		
-		<div class="pagebox">
+		<div class="pagebox">	<!-- 페이징처리  --> <!-- 22-10-19 -->
 		
+		</div>
+		
+		<div> <!-- 검색처리 -->
+		
+			<select class="key">
+				<option value="b.btitle">제목</option>
+				<option value="b.bcontent">내용</option>
+				<option value="m.mid">작성자</option>
+				
+			</select>
+			<input class="keyword" type="text" placeholder="검색어">
+			<button type="button" onclick="bsearch()">검색</button>
 		</div>
 		
 		
 		
 	</div>
+		
+		
+	
 	
 	<!-- 부트스트랩 js -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
