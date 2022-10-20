@@ -44,6 +44,7 @@
 				<li> <a href="/jspweb/member/info.jsp">마이쇼핑</a> </li>
 				<li> <a href="/jspweb/board/list.jsp">고객센터</a> </li>
 				
+				
 			</ul> <!--  상단 메뉴 end  -->
 			
 		</div>
@@ -59,6 +60,7 @@
 			<li><a href="#"> 트레이닝 </a></li>
 			<li><a href="#"> 50% 할인 </a></li>
 			<li><a href="#"> MUSCLE-FIT </a></li>
+			<li><a href="/jspweb/board/chatting.jsp"> 채팅방 </a></li>
 			<li class="searchbox">
 				<span>
 					<input>
