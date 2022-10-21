@@ -1,6 +1,7 @@
 drop database if exists jspweb;
 create database jspweb;
 use jspweb;
+
 create table member(
 	mno			int auto_increment primary key ,		-- 회원번호[pk , autokey ] 
 	mid			varchar(50) UNIQUE NOT NULL , 			-- 회원아이디 
