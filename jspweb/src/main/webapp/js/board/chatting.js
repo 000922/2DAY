@@ -104,11 +104,10 @@ function onmessage(e){
 	}else if( type == 'alarm'){
 		/////////////////////////////// 3. 알람 메시지 코드 /////////////////////////////////////////////////////////////////////////
 		let html = document.querySelector('.contentbox').innerHTML;
-		html +=  '<div class="alarm">'+
-					'<span>'+msg.content+'</span>'+
+		html +=	'<div class="alarm">'+
+					'<span> '+msg.content+' </span>'+
 				'</div>';
-	document.querySelector('.contentbox').innerHTML = html
-
+		document.querySelector('.contentbox').innerHTML = html		
 	}
 	
 	////////// 스크롤 하단으로 내리기 /////////////////////////////
