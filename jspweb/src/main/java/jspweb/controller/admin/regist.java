@@ -1,16 +1,21 @@
 package jspweb.controller.admin;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.mysql.cj.protocol.a.MultiPacketReader;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import jspweb.model.dao.productDao;
 import jspweb.model.dto.productDto;
 
 /**
@@ -32,14 +37,32 @@ public class regist extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+    // 2. 제품 출력 메소드 [ get ]	list.jsp
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		// DAO 처리
+		ArrayList<productDto> list = new productDao().getProductlist();
+		JSONArray array = new JSONArray();		// list -> JSON
+		for( int i = 0 ; i<list.size(); i++ ) {
+			JSONObject object = new JSONObject();
+			object.put("pno", list.get(i).getPcno() );
+			object.put("pname", list.get(i).getPname() );
+			object.put("pcomment", list.get(i).getPcomment() );
+			object.put("pprice", list.get(i).getPprice() );
+			object.put("pdiscount", list.get(i).getPdiscount() );
+			object.put("pactive", list.get(i).getPactive() );
+			object.put("pimg", list.get(i).getPimg() );
+			object.put("pdate", list.get(i).getPdate() );
+			object.put("pcno", list.get(i).getPcno() );
+			array.add(object);
+		}
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().print(array);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	// 1. 제품 등록 메소그 [ post ]
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		/* 첨부파일이 있을경우 */
 		MultipartRequest multi = new MultipartRequest(
@@ -55,8 +78,12 @@ public class regist extends HttpServlet {
 		float pdiscount = Float.parseFloat( multi.getParameter("pdiscount") );
 		String pimg = multi.getFilesystemName("pimg"); 
 		
-		productDto dto = new productDto( 0 , pname, pcomment, pprice, pdiscount, (byte) 0 , pimg, null, 0 );
-		System.out.println( dto.toString() ); // dto 확인용
+		int pcno = Integer.parseInt( multi.getParameter("pcno") );
+		
+		productDto dto = new productDto( 0 , pname, pcomment, pprice, pdiscount, (byte) 0 , pimg, null, pcno );
+		
+		boolean result = new productDao().setProduct(dto);
+		response.getWriter().print(result);
 		
 	}
 

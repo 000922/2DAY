@@ -10,10 +10,11 @@ function regist(){
 		data : formdata ,
 		/* form 전송이 첨부파일 경우 [ 아래 3가지 필수 ] write.js 참고   */
 		type : "post" ,			// -
-		procseeData : false ,	// -
+		processData : false ,	// -
 		contentType : false ,	// -
 		success: function( re ){ 
-			console.log( re )
+			if( re == 'true'){ alert("제품등록") }
+			else{ alert("제품등록실패") }
 		 }
 	})
 }
@@ -81,6 +82,7 @@ function getpcategory(){
 	})
 }
 
+// 
 
 
 
