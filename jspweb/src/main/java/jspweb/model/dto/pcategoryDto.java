@@ -26,4 +26,5 @@ public class pcategoryDto {
 	public String toString() {
 		return "PcategoryDto [pcno=" + pcno + ", pcname=" + pcname + "]";
 	}
+	
 }
