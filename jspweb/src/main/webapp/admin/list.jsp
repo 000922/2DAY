@@ -49,15 +49,16 @@
 	      	<!-- regist.jsp form 사용 -->
 	      	
 	      	<form class="updateform">
+	      		제품번호 : <input readonly="readonly" name="pno" class="pno">
 				제품명 : <input type="text" name="pname" class="pname"> <br>
 				설명 : <textarea rows="" cols="" name="pcomment" class="pcomment"></textarea> <br>
 				가격 : <input type="text" name="pprice" class="pprice"> <br>
 				할인율 : <input type="text" name="pdiscount" class="pdiscount"> <br>
-				카테고리 : <input type="text" name="pcategorybox" ><span class="categorybox"></span>	<br>
+				카테고리 : <span class="pcategorybox"></span>	<br>
 				제품상태 : 
-					<input type="radio" value="0" name="pactive"> 준비중
-					<input type="radio" value="1" name="pactive"> 판매중	
-					<input type="radio" value="2" name="pactive"> 재고없음 <br>
+					<input type="radio" value="0" name="pactive" class="pactive"> 준비중
+					<input type="radio" value="1" name="pactive" class="pactive"> 판매중	
+					<input type="radio" value="2" name="pactive" class="pactive"> 재고없음 <br>
 				<input type="file" id="pimg" name="pimg"> <br>
 			 </form>
 			 
@@ -65,7 +66,7 @@
 	      
 	      <div class="modal-footer">				<!-- 모달 푸터 -->
 	        <button type="button" class="modelclosebtn btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-	        <button type="button" class="btn btn-primary" onclick="updateproduct">수정</button>
+	        <button type="button" class="btn btn-primary" onclick="updateproduct()">수정</button>
 	      </div>
 	      
 	      

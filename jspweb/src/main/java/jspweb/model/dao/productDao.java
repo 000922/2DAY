@@ -14,7 +14,7 @@ public class productDao extends Dao {
 				ps = con.prepareStatement(sql);
 				ps.setString(1, pcname);
 				ps.executeUpdate();	return true;
-			}catch (Exception e) { }
+			}catch (Exception e) {System.out.println(e); }
 			return false;
 		}
 		// 2. 카테고리 출력 [ R ]
@@ -28,7 +28,7 @@ public class productDao extends Dao {
 					pcategoryDto dto = new pcategoryDto( rs.getInt(1) , rs.getString(2) );
 					list.add(dto);
 				}
-			}catch (Exception e) {}
+			}catch (Exception e) { System.out.println(e);}
 			return list;
 		}
 		// 3. 제품 등록  [ C ]
@@ -43,10 +43,17 @@ public class productDao extends Dao {
 				ps.executeUpdate(); return true;
 			}catch (Exception e) {System.out.println(e);} return false;
 		}
-		// 4. 제품 출력  [ R ]
-		public ArrayList< productDto > getProductlist(){
+		// 4. 제품 출력  [ R ] 22-10-28
+		public ArrayList< productDto > getProductlist(String option){
+			
 			ArrayList<productDto> list = new ArrayList<>();
-			String sql = "select * from product";
+			String sql = null;
+			if( option.equals("all") ) {	// 1. 조건없는 모든 제춤 출력 
+				sql = "select * from product";
+			}else if( option.equals("pactive1") ) { // 2. [판매중] 상태 만 모든 제품 출력 
+			 sql = "select * from product where pactive = 1 order by pdate desc";
+			}
+			
 			
 			try {
 				ps = con.prepareStatement(sql);
@@ -59,7 +66,7 @@ public class productDao extends Dao {
 							rs.getString(7),	rs.getString(8),	rs.getInt(9) );
 					list.add(dto);
 				}
-				System.out.println( list.toString() );
+				
 			} catch (Exception e) {System.out.println(e);}
 			return list;
 		}
@@ -93,7 +100,24 @@ public class productDao extends Dao {
 			}catch (Exception e) {System.out.println(e);} return null;
 		}
 	
-}
+		// 7. 제품 업데이트
+		public boolean updateProduct( productDto dto ) {
+			String sql = "update product set pname = ? , pcomment=? , pprice=? , pdiscount=? , pactive=? , pimg=? , pcno=? "
+					+ "where pno = ?";
+			try {
+				ps = con.prepareStatement(sql);
+				ps.setString( 1 , dto.getPname());	ps.setString( 2 , dto.getPcomment());
+				ps.setInt( 3 , dto.getPprice());	ps.setFloat( 4 , dto.getPdiscount());
+				ps.setByte( 5 , dto.getPactive());	ps.setString( 6 , dto.getPimg());
+				ps.setInt( 7 , dto.getPcno());		ps.setInt( 8 , dto.getPno());
+				ps.executeUpdate(); return true;
+			}catch (Exception e) { System.out.println(e);	} 
+			return false;
+		}
+		
+		
+		
+} // end
 
 
 

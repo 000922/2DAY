@@ -1,5 +1,6 @@
 package jspweb.controller.admin;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -11,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -18,6 +20,7 @@ import org.json.simple.JSONObject;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import jspweb.controller.member.delete;
 import jspweb.model.dao.productDao;
 import jspweb.model.dto.productDto;
 
@@ -48,8 +51,16 @@ public class regist extends HttpServlet {
 				String type = request.getParameter("type");
 				response.setCharacterEncoding("UTF-8");
 				if( type.equals("1") ) {
+					
+					// 1. 전체출력 2.판매중 출력	22-10-28
+					String option = request.getParameter("option");
+					
+					
+					
+					
+					
 					//////////////////////////////////////////// 모든 제품 출력 //////////////////////////
-					ArrayList<productDto> list  = new productDao().getProductlist();// DAO 처리 
+					ArrayList<productDto> list  = new productDao().getProductlist(option);// DAO 처리 
 					JSONArray array = new JSONArray(); 	// LIST -> JSON
 					for( int i = 0 ; i<list.size() ; i++ ) {
 						JSONObject object  = new JSONObject();
@@ -100,6 +111,8 @@ public class regist extends HttpServlet {
 				"UTF-8",
 				new DefaultFileRenamePolicy() );
 		
+		int pno = Integer.parseInt( multi.getParameter("pno") );
+		
 		int pcno = Integer.parseInt( multi.getParameter("pcno") );
 		byte pactive = Byte.parseByte(multi.getParameter("pactive") ); 
 		
@@ -108,18 +121,26 @@ public class regist extends HttpServlet {
 		int pprice = Integer.parseInt( multi.getParameter("pprice") ) ;		
 		float pdiscount = Float.parseFloat( multi.getParameter("pdiscount") );
 		String pimg = multi.getFilesystemName("pimg"); 
+		
 		// 카테고리안드로 트로사르 잘하더라 
-		int pcategorybox = Integer.parseInt( multi.getParameter("pcategorybox") );	// 이게 맞나 ? 당연 틀리지 ㅋㅋ
-		productDto dto = new productDto( 0 , pname, pcomment, pprice, pdiscount, (byte) 0 , pimg, null, pcno );
 		
+		boolean bfilechange = true;
+		productDto olddto = new productDao().getpProduct(pcno);
 		
-		System.out.println("수정할 dto : "+ dto.toString() );
+		productDto dto = new productDto( pno , pname, pcomment, pprice, pdiscount, pactive  , pimg, null, pcno );
 		
-		// 카테고리 포함 수정처리 과제 나는 아무것도 모르겠다 아아아아아 ~~~ 와르륵 무너지는 내 멘탈 아 .. 나는 멘탈이 없지 ; 
-		// 오늘의 교훈 뇌에서 멘탈을 꺼내고 살아라 ~ 그게 되겠냐 ~ !! 
-		// 22-10-27 교훈 일기 안되면 될때까지 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ 이건 바보같은 소리야 안되면 안돼 ! 
-		// 한순간도 놓치면 다 끝나는거야 ~ 아아아아 ~~ 
-		// 나는 누구 여기는 504 나는 지금 뭐 하고 있는지 잘 생각해봐 근데 생각 할 뇌 조차 믹서기에 갈려 버렸어 ㅋㅋㅋㅋㅋ
+		System.out.println( dto.toString() );
+		
+		boolean result = new productDao().updateProduct(dto);
+		
+		// dao 처리 
+		if( result && bfilechange ) { deletefile( request.getSession() , olddto.getPimg() ); }
+		
+		response.getWriter().print(result);
+		
+		// System.out.println("수정할 dto : "+ dto.toString() );
+		
+
 		
 	}
 	
@@ -133,10 +154,18 @@ public class regist extends HttpServlet {
 		//	ServletRequest request = null;
 			// 1.  삭제할 제품번호 요청 
 			int pno = Integer.parseInt( request.getParameter("pno") );
+			productDto olddto = new productDao().getpProduct(pno);
 			// 2. dao 
 			boolean result =  new productDao().deleteprodcut( pno );
+			if(result) { deletefile(request.getSession() , olddto.getPimg() ); }
 			// 3. 응답 
 			response.getWriter().print(result);
+	}
+	// 5. 수정 및 삭제시 첨부파일 제거 메소드
+	public void deletefile( HttpSession session ,  String pimg ) {
+		String deletepath = session.getServletContext().getRealPath("/admin/pimg/"+ pimg );
+		File file = new File( deletepath );
+		if( file.exists() ) file.delete();	
 	}
 		
 

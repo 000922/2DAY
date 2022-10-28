@@ -10,8 +10,8 @@ public class Dao {
 	Connection con;
 	PreparedStatement ps;
 	ResultSet rs;
-	
 	public Dao() {
+		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver"); 
 			con = DriverManager.getConnection(

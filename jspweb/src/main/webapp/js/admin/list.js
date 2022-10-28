@@ -4,12 +4,12 @@ getproduct()
 function getproduct(){
 	$.ajax({
 		url :"/jspweb/admin/regist" ,
-		data : { "type" : 1 } , // 타입이 1 이면 모든 제품 호출
+		data : { "type" : 1 , "option" : "all" } , // 타입이 1 이면 모든 제품 호출
 		type : "get", 
 		success : function( re ){
 			let json = JSON.parse( re )
 			console.log( json )
-			let html = ""
+			let html = '';
 			// forEach( 반복변수명 => { 실행문 } ) : 인덱스 존재하는 객체에 한해 사용가능
 			json.forEach( p => {
 				// 반복변수명에 인덱스객체 하나씩 대입 
@@ -46,10 +46,37 @@ function updatemodal( pno ){
 			type : "get" ,
 			success : function( re ){ 
 				let json = JSON.parse(re)
+				
+				document.querySelector('.pno').value = json.pno
 				document.querySelector('.pname').value = json.pname
 				document.querySelector('.pcomment').value = json.pcomment
 				document.querySelector('.pprice').value = json.pprice
 				document.querySelector('.pdiscount').value = json.pdiscount
+				
+					// 카테고리 호출
+					$.ajax({
+						url: "/jspweb/board/pcategory" ,
+						type : "get" ,
+						success: function(re){
+							let json2 = JSON.parse(re)
+							let html = ''
+							for( let i = 0 ; i<json2.length ; i++ ){
+								let category = json2[i];
+								if( category.pcno == json.pcno ){
+									html += '<input checked type="radio" name="pcno" value='+category.pcno+'>'+category.pcname;	
+								}else{
+									html += '<input type="radio" name="pcno" value='+category.pcno+'>'+category.pcname;
+								}
+							}
+							document.querySelector(".pcategorybox").innerHTML = html;
+						}
+					})
+					
+					// 제품 상태 호출
+					let pactivebtns = document.querySelectorAll('.pactive');
+					if( json.pactive == 0 ){ pactivebtns[0].checked = true }
+					if( json.pactive == 1 ){ pactivebtns[1].checked = true }
+					if( json.pactive == 2 ){ pactivebtns[2].checked = true }
 			 }
 		})
 }
@@ -57,25 +84,29 @@ function updatemodal( pno ){
 function updateproduct(){
 	
 	// 1. 수정할정보
-	let form = document.querySelector('updateform')
+	let form = document.querySelector('.updateform')
 	let formdata = new FormData( form )
-		// formdata 속성 추가
-			// formdata.set('속성명' : 데이터 )
+	
 	$.ajax({
 		url : "/jspweb/admin/regist" ,
 		type : "put" ,
 		data : formdata ,
 		processData : false ,
 		contentType : false ,
-		success : function(re){ 
+		success : function( re ){ 
 			alert( re )
+			if( re === 'true'){
+				alert("수정성공")
 				// 1. 모달닫기
 				document.querySelector(".modelclosebtn").click()
 				// 2. 새로고침
-				pagechage('list.jsp');	
+				pagechage('list.jsp');
+				
+			}else{ alert("수정실패")}
 		}
 	})
-}
+	
+} 
 	
 
 // 3. 삭제 처리 메소드
