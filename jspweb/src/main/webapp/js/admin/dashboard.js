@@ -7,7 +7,7 @@ let mainbox = document.querySelector('#mainbox')
 // 2. 해당 사이드바 태그를 클릭했을때 이벤트 [ 사이드바 열기 ]
 sidebar.addEventListener( 'click' , function() {
 	// 해당 사이드바 css 변경 [ left 속성을 0으로 만듬]
-	sidebar.style.left = 0
+	sidebar.style.left = 0;
 })
 
 // 3. 본문 div 클릭했을때 이벤트 작동 [ 사이드바 접기 ]

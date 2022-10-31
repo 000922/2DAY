@@ -1,7 +1,6 @@
 drop database if exists jspweb;
 create database jspweb;
 use jspweb;
-
 create table member(
 	mno			int auto_increment primary key ,		-- 회원번호[pk , autokey ] 
 	mid			varchar(50) UNIQUE NOT NULL , 			-- 회원아이디 
@@ -50,21 +49,96 @@ CREATE TABLE board(
     constraint bcno_fk foreign key (cno) references category(cno) on update cascade ,
     constraint bmno_fk foreign key (mno) references member(mno) on delete cascade
 );
--- 댓글 : 1.게시물번호 2.회원번호 3.내용
-
+-- 댓글 : 1.게시물번호 2.회원번호 3.내용 4.답글식별필드
 drop table if exists reply;
 create table reply(
 	rno 		int  auto_increment, -- 댓글식별번호 
     rcontent 	varchar(1000) not null , -- 댓글내용
     rdate		datetime  default now(),  -- 댓글작성일
+    rindex		int default 0 , -- 댓글 과 대댓글 식별 필드 [ 0:상위댓글 , 숫자:상위댓글번호 ] 
     mno			int not null,-- 작성자 회원번호
     bno			int not null,-- 게시물번호 
     constraint rno_pk primary key(rno) ,
     constraint rmno_fk foreign key (mno) references member(mno) on delete cascade, -- 회원탈퇴시 댓글도 같이 삭제
     constraint rbno_fk foreign key (bno ) references board(bno) on delete cascade -- 게시물삭제시 댓글도 같이 삭제
 );
-select * from reply;
 
+-- 제품 테이블 --
+drop table if exists pcategory;
+create table pcategory( /* 제품 카테고리 테이블 */
+	pcno  int auto_increment,   				/* 카테고리번호  */
+    pcname varchar(100) , 						/* 카테고리이름  */
+    constraint pcno_pk primary key( pcno )
+);
+drop table if exists product;
+create table product( /* 제품 테이블 */
+	pno int auto_increment ,  /*제품번호*/
+    pname varchar(100)  , /*제품명*/
+    pcomment varchar(1000) , /* 제품설명 */
+    pprice int unsigned ,  /*  +-20억    unsigned ---> 0~40억   : 제품가격 */
+    pdiscount float , /* 할인율[소수점] */ 
+    pactive tinyint , /* 상태 : 0[준비중] , 1:판매중 , 2:재고없음  뜻함 */
+    pimg varchar(1000) , /* 대표 이미지 경로 */ 
+    pdate datetime default now() , 	/* 등록날짜 */
+    pcno int , /* 제품카테고리의 FK */ 
+    constraint pno_pk primary key ( pno ),
+    constraint pcno_fk foreign key ( pcno ) references pcategory( pcno ) /* pcategory[pk:pcno]  <-------->  product[fk:pcno] */
+);
+
+/* 제품별 사이즈 테이블  : 제품별[pno] 사이즈[psize] 저장 */
+drop table if exists productsize;
+create table productsize(
+	psno	int auto_increment , 
+    psize	varchar(100) , 
+    pno		int  , 
+	constraint psno_pk primary key( psno ) ,
+    constraint pno_fk foreign key ( pno ) references product( pno )
+);
+/* 사이즈별 색상재고 테이블 : 사이즈별[psno] 색상[pcolor] 재고[pstock] 저장 */
+drop table if exists productstock;
+create table productstock(
+	pstno	int auto_increment , 
+    pcolor 	varchar(100) , 
+    pstock int ,
+    psno int , 
+    constraint pstno_pk primary key( pstno ) , 
+    constraint psno_fk	foreign key( psno ) references productsize( psno )
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+select * from reply;
+select r.rcontent , r.rdate , m.mid from reply r , member m where r.mno = m.mno and r.bno = 33;
+-- 댓글만 출력 
+select * from reply where rindex = 0;
+-- 1번 댓글의 답글만 출력 
+select * from reply where rindex = 1;
+-- 해당 게시물의 댓글만 출력 			[ 33번 게시물의 댓글만 출력 ]
+select r.rcontent , r.rdate , m.mid , r.rno
+from reply r , member m 
+where r.mno = m.mno and r.bno = 33 and r.rindex = 0 
+order by r.rdate desc;
+-- 해당 게시물의 1번 댓글의 답글만 출력 	[ 33번 게시물의 1번 댓글의 답글 출력  ]
+select r.rcontent , r.rdate , m.mid from reply r , member m where r.mno = m.mno and r.bno = 33 and r.rindex = 1;
 
 
 
