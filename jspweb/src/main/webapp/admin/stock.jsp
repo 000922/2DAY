@@ -39,7 +39,7 @@
 			</div>
 			<div class="col-md-6">
 				<h3>재고 출력</h3>
-				<table class="table">
+				<table class="table stocktable">
 					<tr>
 						<th> 사이즈 </th>
 						<th> 색상 </th>

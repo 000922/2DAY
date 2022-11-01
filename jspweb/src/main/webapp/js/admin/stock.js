@@ -104,20 +104,27 @@ function setstock(){
 
 // 4. 제품별 재고 출력
 function getstock(){
-	
+	alert('제품별 재고 출력')
 	$.ajax({
 		url : "/jspweb/admin/stock" ,
 		type : "get" ,		// get method
 		data : { "pno" : rows[1].innerHTML } ,
-		success : re => {	// 과제
-			let json = JSON.parse(re)
-			console.log(json)	// 모르겠다 .. ㅋㅋ
-			let html = ''
-			
-			
+		success : re => {	// 여기 복습 하기 11/01 
+			let json = JSON.parse( re )
+			let html = '<tr><th> 사이즈 </th> <th> 색상 </th> <th> 재고 </th> <th> 비고 </th> </tr>';
+			// forEach( 반복변수명 => { 실행문 } ) : 인덱스 존재하는 객체에 한해 사용가능
+			json.forEach( s => {
+				// 반복변수명에 인덱스객체 하나씩 대입 
+				html +=  `<tr>`+
+						`	<td> ${s.psize} </td>`+
+						`	<td> ${s.pcolor}  </td>`+
+						`	<td> ${s.pstock}  </td>`+
+						`	<td> -  </td>`+
+						`</tr>`;
+			}) // 반복 end  
+			document.querySelector('.stocktable').innerHTML = html
 		}
 	})
-	
 }
 
 //

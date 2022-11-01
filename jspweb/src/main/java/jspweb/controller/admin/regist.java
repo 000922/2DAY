@@ -76,6 +76,7 @@ public class regist extends HttpServlet {
 						array.add(object);
 					}
 					response.getWriter().print(array);
+					
 					///////////////////////////////////////////////////////////////////////////////////
 
 				}else if( type.equals("2") ) {

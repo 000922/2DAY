@@ -13,7 +13,7 @@ function getpactive1(){
 					json.forEach( p => {
 						alert('pp')
 						 html =  '<div class="item" > '+
-			'			<a href="#">'+
+			'			<a href="/jspweb/product/view.jsp?pno='+p.pno+'">'+
 			'				<img alt="" src="/jspweb/img/c1.jpg"> '+
 			'			</a>'+
 			'			'+
