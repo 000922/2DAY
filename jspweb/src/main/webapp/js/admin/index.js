@@ -14,7 +14,7 @@ function getpactive1(){
 						alert('pp')
 						 html =  '<div class="item" > '+
 			'			<a href="/jspweb/product/view.jsp?pno='+p.pno+'">'+
-			'				<img alt="" src="/jspweb/img/c1.jpg"> '+
+			'				<img alt="" src="/jspweb/img/c1.jpg/"> '+
 			'			</a>'+
 			'			'+
 			'			<div class="item_info"> '+

@@ -11,6 +11,7 @@
 			3. 함수1( 인수 => 콜백함수2 )	  
 
 */
+console.log( '수신02');
 let productlist = null; /* 모든 제품를 가지고 있는 리스트 선언 [ 전역 = 모든 함수 사용목적 ] */
 alert('01')
 let cselect = document.querySelector('.cselect') 	// 카테고리 선택 상자 
@@ -36,6 +37,7 @@ pselect.addEventListener( 'click' , e => {
 	})
 })
 alert('04')
+console.log( '수신03');
 /*1-2 페이지 열리면 모든 카테고리 select 넣어주기 */
 getcategory();
 function getcategory(){
@@ -54,7 +56,7 @@ function getcategory(){
 	})
 }
 alert('05')
-
+console.log( '수신04');
 
 /*2. 선택된 카테고리별 제품리스트를 select 넣어주기 */
 function getproduct( pcno ){
