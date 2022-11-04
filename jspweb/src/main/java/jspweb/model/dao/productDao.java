@@ -3,6 +3,7 @@ package jspweb.model.dao;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import jspweb.model.dto.CartDto;
 import jspweb.model.dto.StockDto;
 import jspweb.model.dto.pcategoryDto;
 import jspweb.model.dto.productDto;
@@ -183,6 +184,58 @@ public class productDao extends Dao {
 				}
 				
 			}catch (Exception e) {System.out.println(e);} return 3;
+		}
+		
+		// 11. 장바구니에 선택한 제품 옵션 저장 
+		public boolean setcart( int pno , String psize ,  int amount , String pcolor , int mno) {
+			
+			// 만약에 동일한 제품 옵션 중복했을때 수량만 증가하는 업데이트 처리	[ 미구현 ]
+			
+			// 동일한 제품 옵션이 없을때 
+		    String sql = " insert into cart( amount , pstno , mno )"
+		    		+ " values (  "
+		    		+ "	"+amount+" ,"
+		    		+ "    (select pstno "
+		    		+ "	from productstock pst , (select psno from productsize where pno = "+pno+" and psize = '"+psize+"') sub"
+		    		+ "	where pst.psno = sub.psno and pcolor = '"+pcolor+"') ,"
+		    		+ "  "+mno+""
+		    		+ " );";
+		    
+		    try {
+		    	ps = con.prepareStatement(sql); ps.executeUpdate(); return true;
+		    }catch (Exception e) { System.out.println( e ); } return false;
+		}
+		
+		
+		// 12. 회원번호의 모든 장바구니 호출 
+		public ArrayList<CartDto> getCart( int mno ){
+			ArrayList<CartDto> list = new ArrayList<>();
+			String sql = "select "
+					+ "	   c.cartno ,  c.pstno , "
+					+ "    p.pname , p.pimg  , "
+					+ "    p.pprice   ,   p.pdiscount  , "
+					+ "	   pst.pcolor  , ps.psize  , "
+					+ "    c.amount  "
+					+ " from "
+					+ "	   cart c natural join "
+					+ "    productstock pst natural join "
+					+ "    productsize ps natural join "
+					+ "    product p "
+					+ " where "
+					+ "	c.mno = "+mno;
+			try {
+				ps = con.prepareStatement(sql); 
+				rs = ps.executeQuery();
+				while( rs.next() ) {
+					CartDto cartDto = new CartDto(
+							rs.getInt(1), rs.getInt(2), 
+							rs.getString(3), rs.getString(4), 
+							rs.getInt(5), rs.getFloat(6), 
+							rs.getString(7), rs.getString(8), rs.getInt(9));
+					list.add(cartDto);
+				}
+			}catch (Exception e) {System.out.println(e);} return list;
+
 		}
 		
 }

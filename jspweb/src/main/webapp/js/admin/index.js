@@ -10,22 +10,23 @@ function getpactive1(){
 	success : function( re ){ 
 		let json = JSON.parse( re )
 		let html = '' ;
+		console.log(json);
 					json.forEach( p => {
 						alert('pp')
 						 html =  '<div class="item" > '+
 			'			<a href="/jspweb/product/view.jsp?pno='+p.pno+'">'+
-			'				<img alt="" src="/jspweb/img/c1.jpg/"> '+
+			'				<img src="/jspweb/admin/pimg/'+ p.pimg +'">'+
 			'			</a>'+
 			'			'+
 			'			<div class="item_info"> '+
-			'				<div class="item_title">남성 엠보스드 트렁크</div> '+
+			'				<div class="item_title">'+ p.pname +'</div> '+
 			'				'+
 			'				<div class="item_size"> [ FREE] </div>'+
 			'				'+
-			'					<div class="item_price"> 50,000원 </div> '+
+			'					<div class="item_price"> '+p.pprice+' </div> '+
 			'					<div> <!-- 할인된 가격 , 할인율 -->'+
-			'						<span class="item_sals"> 30,000원 </span>'+
-			'						<span class="item_discount"> 20% </span>'+
+			'						<span class="item_sals"> '+(p.pprice-(p.pprice*p.pdiscount) ).toLocaleString()+'원  </span>'+
+			'						<span class="item_discount"> '+ Math.round(p.pdiscount*100)+'%  </span>'+
 			'					</div>'+
 			'					<div class="item_review"> 찜 90 리뷰수 400 </div> '+
 			'			</div>'+

@@ -79,7 +79,7 @@ function updatemodal( pno ){
 					if( json.pactive == 2 ){ pactivebtns[2].checked = true }
 			 }
 		})
-}
+} 
 // 2-2. 수정 처리 메소드 
 function updateproduct(){
 	
